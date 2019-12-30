@@ -1,5 +1,5 @@
 ﻿using System;
-using Helios.Architecture.Memento.Memento;
+using Helios.Architecture.Memento.PostState;
 
 namespace Helios.Architecture.Memento
 {
