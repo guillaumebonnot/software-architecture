@@ -10,9 +10,12 @@ namespace Helios.Architecture.Memento.PostState
         // accounts that have been modified
         private readonly Dictionary<string, Account> accounts = new Dictionary<string, Account>();
 
-        public PostState(State state)
+        private readonly Action<IAccount> callback;
+
+        public PostState(State state, Action<IAccount> callback)
         {
             this.state = state;
+            this.callback = callback;
         }
 
         public bool TryGetAccount(string username, out Account account)
@@ -37,6 +40,7 @@ namespace Helios.Architecture.Memento.PostState
         public void SetAccount(string username, Account account)
         {
             accounts[username] = account;
+            callback(account);
         }
 
         // apply the post state to update the underlying state

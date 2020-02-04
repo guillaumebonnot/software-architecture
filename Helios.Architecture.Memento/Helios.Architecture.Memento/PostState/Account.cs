@@ -3,7 +3,7 @@
 namespace Helios.Architecture.Memento.PostState
 {
     // immutable
-    internal interface IAccount
+    public interface IAccount
     {
         string Name { get; }
         int Version { get; }

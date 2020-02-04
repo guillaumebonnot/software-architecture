@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Helios.Architecture.Memento.PostState;
 
 namespace Helios.Architecture.Memento.Memento
 {
-    class AccountService : IAccountService
+    public class AccountService : IAccountService
     {
         private readonly Dictionary<string, Account> accounts = new Dictionary<string, Account>();
 
@@ -28,6 +29,7 @@ namespace Helios.Architecture.Memento.Memento
 
             Console.WriteLine("Deposit");
             UpdateBalance(account, currency, amount);
+            UpdateAccount(account);
         }
 
         private bool UpdateBalance(Account account, string currency, int delta)
@@ -73,6 +75,19 @@ namespace Helios.Architecture.Memento.Memento
                 memento1.Undo();
                 memento2.Undo();
             }
+            else
+            {
+                UpdateAccount(account1);
+                UpdateAccount(account2);
+            }
         }
+
+        private void UpdateAccount(Account account)
+        {
+            AccountUpdated(account); // not thread safe
+            // AccountUpdated(new Account(account.Name, account.GetBalances())); // thread safe
+        }
+
+        public Action<IAccount> AccountUpdated { get; set; }
     }
 }

@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Helios.Architecture.Memento.PostState;
 
 namespace Helios.Architecture.Memento.Memento
 {
     // mutable
     // not thread safe
-    internal class Account
+    internal class Account : IAccount
     {
-        public readonly string Name;
+        public string Name { get; }
         private Dictionary<string, int> balances;
+
+        // useless
+        public int Version { get; }
 
         public Account(string name) : this(name, new Dictionary<string, int>()) { }
 
@@ -18,7 +22,7 @@ namespace Helios.Architecture.Memento.Memento
             this.balances = balances;
         }
 
-        internal int GetBalance(string currency)
+        public int GetBalance(string currency)
         {
             if(balances.TryGetValue(currency, out var balance))
             {

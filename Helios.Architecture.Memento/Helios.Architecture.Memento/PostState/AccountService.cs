@@ -2,7 +2,7 @@
 
 namespace Helios.Architecture.Memento.PostState
 {
-    class AccountService : IAccountService
+    public class AccountService : IAccountService
     {
         private readonly State state = new State();
 
@@ -74,10 +74,12 @@ namespace Helios.Architecture.Memento.PostState
             });
         }
 
+        public Action<IAccount> AccountUpdated { get; set; }
+
         private void TryUpdateState(Func<PostState, bool> process)
         {
             // create post state
-            var poststate = new PostState(state);
+            var poststate = new PostState(state, AccountUpdated);
             // if success
             if (process(poststate))
             {
