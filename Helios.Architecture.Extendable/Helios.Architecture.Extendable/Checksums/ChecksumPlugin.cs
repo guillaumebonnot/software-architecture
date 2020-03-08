@@ -4,9 +4,11 @@ namespace Helios.Architecture.Extendable.Checksums
 {
     internal class ChecksumPlugin : IPlugin
     {
+        public static readonly Property<Event, int> ChecksumProperty = new Property<Event, int>("Checksum");
+
         static ChecksumPlugin()
         {
-            Event.RegisterProperty(EventExtensions.ChecksumProperty);
+            Event.RegisterProperty(ChecksumProperty);
         }
 
         public void OnCreateEvent(Event @event)
@@ -21,7 +23,7 @@ namespace Helios.Architecture.Extendable.Checksums
 
         public void OnDisplayEvent(Event @event)
         {
-            Console.WriteLine($"{EventExtensions.ChecksumProperty.Name} : {@event.GetChecksum()}");
+            Console.WriteLine($"{ChecksumProperty.Name} : {@event.GetChecksum()}");
         }
     }
 }

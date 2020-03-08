@@ -2,16 +2,14 @@
 {
     public static class EventExtensions
     {
-        public static readonly Property<Event, byte[]> SignatureProperty = new Property<Event, byte[]>("Signature");
-
         public static byte[] GetSignature(this Event @event)
         {
-            return SignatureProperty.Get(@event);
+            return SignaturePlugin.SignatureProperty.Get(@event);
         }
 
         public static void SetSignature(this Event @event, byte[] signature)
         {
-            SignatureProperty.Set(@event, signature);
+            SignaturePlugin.SignatureProperty.Set(@event, signature);
         }
     }
 }
