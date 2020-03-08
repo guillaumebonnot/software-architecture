@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios.Architecture.Extendable", "Helios.Architecture.Extendable\Helios.Architecture.Extendable.csproj", "{5BFF1466-65E4-4552-832D-31D3B1139403}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BFF1466-65E4-4552-832D-31D3B1139403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BFF1466-65E4-4552-832D-31D3B1139403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BFF1466-65E4-4552-832D-31D3B1139403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BFF1466-65E4-4552-832D-31D3B1139403}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E9C4F57-946D-4EDE-96D0-FBE00A237DD4}
+	EndGlobalSection
+EndGlobal
