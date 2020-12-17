@@ -16,6 +16,8 @@ namespace Helios.Architecture.Pipeline
             Console.ReadLine();
             Processors.Test.Run();
             Console.ReadLine();
+            Compiled.Benchmark.Run();
+            Console.ReadLine();
             Console.WriteLine("Finished !");
             Console.ReadLine();
         }
